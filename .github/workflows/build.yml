@@ -41,13 +41,13 @@ jobs:
         path: dist/main.exe
     
     - name: GitHub Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SOURCE_NAME: ${{ steps.extract_names.outputs.SOURCE_NAME }}
-          SOURCE_BRANCH: ${{ steps.extract_names.outputs.SOURCE_BRANCH }}
-          SOURCE_TAG: ${{ steps.extract_names.outputs.SOURCE_TAG }}
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SOURCE_NAME: ${{ steps.extract_names.outputs.SOURCE_NAME }}
+        SOURCE_BRANCH: ${{ steps.extract_names.outputs.SOURCE_BRANCH }}
+        SOURCE_TAG: ${{ steps.extract_names.outputs.SOURCE_TAG }}
         with:
           files: dist/main.exe
     
