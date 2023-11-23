@@ -5,10 +5,17 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write
+  
 jobs:
   build:
     runs-on: windows-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
